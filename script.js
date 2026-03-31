@@ -1,4 +1,9 @@
-
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("login-btn").addEventListener("click", doLogin);
+  document.getElementById("phone-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") doLogin();
+  });
+});
 var DB = {
  
   "87824842": {
@@ -134,4 +139,8 @@ function handleLogout() {
   document.getElementById("phone-input").value             = "";
   document.getElementById("login-error").style.display     = "none";
 }
+
+console.log("script loaded");
+console.log("button:", document.getElementById("login-btn"));
+console.log("screen:", document.getElementById("passport-screen"));
 
