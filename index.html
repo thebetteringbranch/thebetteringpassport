@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bettering Passport</title>
+
+  </head>
+<body>
+<div class="passport-wrap">
+ 
+<!-- ═══════════════════════════════════════════════
+     COVER / LOGIN
+═══════════════════════════════════════════════ -->
+<div id="cover" style="width:100%">
+  <div class="cover-book">
+     <img src="assets/Passportcover.png" alt="Cover">
+        <div class="cover-form-overlay">
+      <label class="cover-field-label" for="phone-input">Enter your number to open</label>
+      <div class="cover-input-row">
+        <span class="cover-prefix">+65</span>
+        <input type="text" id="phone-input" placeholder="9123 4567" autocomplete="off" inputmode="numeric">
+      </div>
+      <div class="cover-error" id="login-error"></div>
+      <button class="cover-btn" id="login-btn">Open my Passport &rarr;</button>
+      <div class="cover-hint">The number you gave TBB when you signed up &middot; never stored in your browser</div>
+      <div class="demo-tip">Demo: try 91234567 or 98765432</div>
+    </div>
+  </div>
+</div>
+
+  <!-- ═══════════════════════════════════════════════
+     PASSPORT INNER PAGES
+═══════════════════════════════════════════════ -->
+<div id="passport-screen">
+ 
+  <nav class="pp-nav">
+    <span class="nav-brand">The Bettering Passport</span>
+    <div class="nav-actions">
+      <button class="nbtn nbtn-ghost" onclick="handleLogout()">Close</button>
+      <button class="nbtn nbtn-solid" onclick="window.print()">&darr; Save PDF</button>
+    </div>
+  </nav>
+ 
+  <div class="bio-page">
+    <img src="assets/book.png" alt='book'>
+
+     <div class="bio-content">
+      <div class="bio-org">The Bettering Branch &middot; Volunteer Record</div>
+      <div class="bio-grid">
+        <div><div class="bf-label">Name</div><div class="bf-val-lg" id="pp-name">—</div></div>
+        <div><div class="bf-label">School</div><div class="bf-val" id="pp-school">—</div></div>
+        <div><div class="bf-label">Hours Served</div><div class="bf-val-lg" id="pp-hours">—</div></div>
+        <div><div class="bf-label">Sessions</div><div class="bf-val-lg" id="pp-sessions">—</div></div>
+        <div><div class="bf-label">Member Since</div><div class="bf-val" id="pp-since">—</div></div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="stamps-page">
+    <img src="page-bg" alt="stamp space">
+
+      <div class="stamps-content">
+      <div class="stamps-header">
+        <div class="stamps-title">Stamps Collected</div>
+        <div class="stamps-page-label">Page 1 of 1</div>
+      </div>
+      <div class="stamps-scatter" id="stamps-grid"></div>
+    </div>
+  </div>
+
+   <div class="log-page">
+    <img src="page-bg" alt="">
+
+      <div class="log-content">
+      <div class="log-title">Activity Log</div>
+      <div id="log-rows"></div>
+    </div>
+  </div>
+ 
+  <div class="pp-footer">
+    <span class="footer-text">Check if we have any new activities &mdash;</span>
+    <a class="footer-link" href="https://t.me/thebetteringbranch" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+      Join our Telegram
+    </a>
+  </div>
+ 
+</div>
+</div>
+ </body>
+</script>
+ 
