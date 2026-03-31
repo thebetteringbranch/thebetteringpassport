@@ -1,4 +1,4 @@
-<script> 
+
 var DB = {
  
   "87824842": {
@@ -134,4 +134,4 @@ function handleLogout() {
   document.getElementById("phone-input").value             = "";
   document.getElementById("login-error").style.display     = "none";
 }
-</script>
+
