@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+
   document.getElementById("login-btn").addEventListener("click", doLogin);
   document.getElementById("phone-input").addEventListener("keydown", function(e) {
     if (e.key === "Enter") doLogin();
@@ -36,7 +36,7 @@ var DB = {
      
        { event: "The Bettering Run",  date: "Apr 2025", hrs: "6 h" },
       { event: "Recycle Red! 2025",    date: "Jan 2025-Feb 2025", hrs: "6 h" },
-      { event: "Arts & Crafts with Kids",     date: "Dec 2024", hrs: "3 h" }
+      { event: "Arts & Crafts with Kids",     date: "Dec 2024", hrs: "3 h" },
         { event: "Seniors' Luncheon @ Fengshan Community Club",          date: "Sept 2025", hrs: "4 h" },
     ]
   },
