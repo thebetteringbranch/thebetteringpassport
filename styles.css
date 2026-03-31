@@ -30,11 +30,24 @@ body {
 /* ══ COVER ══ */
 #cover { width: 100%; }
  
+.cover-book {
+  position: relative;   /* needed if overlay is absolute */
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cover-book img {
+  width: 100%;
+  height: auto;         /* never set a fixed height on this */
+  display: block;
+}
+
 .cover-form-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 0 32px 28px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(55,100,50,0.88) 30%, rgba(40,78,36,0.97) 100%);
+  position: absolute;   /* sits over the bottom of the image */
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
  
 .cover-field-label {
