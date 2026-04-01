@@ -57,9 +57,10 @@ var DB = {
     since:    "May 3000",
     hours:    "69696969",
     sessions: "Infinite",
-    stamps: [ "assets/15:2:25.png",
+    stamps: [
+      "assets/15:2:25.png",
       "assets/21:6:25.png",
-      "assets/7:3:26.png"
+      "assets/7:3:26.png",
                  "assets/17:5:25.png"
             ],
     activities: [
