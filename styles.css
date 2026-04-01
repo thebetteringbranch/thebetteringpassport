@@ -38,7 +38,7 @@ body {
 }
 
 .cover-book img {
-  width: 100%;
+  width: 500px;
   height: auto;         /* never set a fixed height on this */
   display: block;
 }
