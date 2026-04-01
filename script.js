@@ -57,7 +57,11 @@ var DB = {
     since:    "May 3000",
     hours:    "69696969",
     sessions: "Infinite",
-    stamps: [],
+    stamps: [ "assets/15:2:25.png",
+      "assets/21:6:25.png",
+      "assets/7:3:26.png"
+                 "assets/17:5:25.png"
+            ],
     activities: [
       { event: "Recycle Red! 2025",                           date: "Feb 2025", hrs: "999 h" },
       { event: "Seniors' Luncheon @ Fengshan CC",            date: "Sept 2024", hrs: "4 h" },
