@@ -51,6 +51,26 @@ var DB = {
     ]
   },
 
+    "89070733": {
+    name:     "Cheryll Ng Yan Ling",
+    school:   "Victoria Junior College",
+    since:    "Jan 2026",
+    hours:    "999",
+    sessions: "67",
+    stamps: [
+      "assets/17:5:25.png"
+        "assets/15:2:25.png",
+      "assets/21:6:25.png",
+      "assets/7:3:26.png",
+    ],
+    activities: [
+      { event: "The Bettering Run",                           date: "Apr 2025", hrs: "6 h" },
+      { event: "Recycle Red! 2025",                           date: "Jan 2025–Feb 2025", hrs: "6 h" },
+      { event: "Arts & Crafts with Kids",                     date: "Dec 2024", hrs: "3 h" },
+      { event: "Seniors' Luncheon @ Fengshan CC",            date: "Sept 2025", hrs: "4 h" }
+    ]
+  },
+
   "96204969": {
     name:     "Raean Cheong",
     school:   "Unicornland",
