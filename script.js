@@ -112,7 +112,7 @@ function doLogin() {
 
   var v = DB[num];
   if (!v) {
-    err.textContent = "No passport found. Check with the TBB team.";
+    err.textContent = "No account found. Please email a support request to The Bettering Branch's IT team via thebetteringbranch@gmail.com.";
     err.style.display = "block";
     return;
   }
