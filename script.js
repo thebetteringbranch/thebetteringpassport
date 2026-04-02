@@ -58,10 +58,10 @@ var DB = {
     hours:    "999",
     sessions: "67",
     stamps: [
-      "assets/17:5:25.png"
+      "assets/17:5:25.png",
         "assets/15:2:25.png",
       "assets/21:6:25.png",
-      "assets/7:3:26.png",
+      "assets/7:3:26.png"
     ],
     activities: [
       { event: "The Bettering Run",                           date: "Apr 2025", hrs: "6 h" },
