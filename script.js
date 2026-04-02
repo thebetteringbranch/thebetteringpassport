@@ -53,7 +53,7 @@ var DB = {
 
     "89070733": {
     name:     "Cheryll Ng Yan Ling",
-    school:   "Victoria Junior College",
+    school:   "Bedok Reservoir School of Being Bored",
     since:    "Jan 2026",
     hours:    "999",
     sessions: "67",
