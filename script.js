@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
    CONFIG — paste your Apps Script URL here
 ═══════════════════════════════════════════════ */
 
-var APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_DEPLOYMENT_URL_HERE";
+var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwALJz6qzeQDcOkIPGVCbUPEL31-jbJlUyAsCW3WX6H4sqJfml-AUAk7H57oEVarggvng/exec";
 
 /* ═══════════════════════════════════════════════
    APP LOGIC
