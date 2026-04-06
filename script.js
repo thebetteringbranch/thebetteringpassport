@@ -3,13 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("phone-input").addEventListener("keydown", function (e) {
     if (e.key === "Enter") doLogin();
   });
+
+  // Warm up the Apps Script so login feels instant
+  fetch(APPS_SCRIPT_URL + "?phone=ping").catch(function(){});
 });
 
 /* ═══════════════════════════════════════════════
    CONFIG — paste your Apps Script URL here
 ═══════════════════════════════════════════════ */
 
-var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwALJz6qzeQDcOkIPGVCbUPEL31-jbJlUyAsCW3WX6H4sqJfml-AUAk7H57oEVarggvng/exec";
+var APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_DEPLOYMENT_URL_HERE";
 
 /* ═══════════════════════════════════════════════
    APP LOGIC
@@ -30,12 +33,17 @@ function doLogin() {
 
   // Loading state
   err.style.display = "none";
-  btn.textContent = "Loading…";
   btn.disabled = true;
+  var dots = 0;
+  var loadingInterval = setInterval(function() {
+    dots = (dots + 1) % 4;
+    btn.textContent = "Loading" + ".".repeat(dots);
+  }, 400);
 
   fetch(APPS_SCRIPT_URL + "?phone=" + num)
     .then(function (res) { return res.json(); })
     .then(function (v) {
+      clearInterval(loadingInterval);
       btn.textContent = "Open Passport";
       btn.disabled = false;
 
@@ -48,6 +56,7 @@ function doLogin() {
       renderPassport(v);
     })
     .catch(function () {
+      clearInterval(loadingInterval);
       btn.textContent = "Open Passport";
       btn.disabled = false;
       err.textContent = "Connection error. Please check your internet and try again.";
