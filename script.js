@@ -6,96 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ═══════════════════════════════════════════════
-   VOLUNTEER DATA — edit this section only
+   CONFIG — paste your Apps Script URL here
 ═══════════════════════════════════════════════ */
 
-var DB = {
-
-  "87824842": {
-    name:     "Carissa Gabrielle Sim",
-    school:   "Victoria Junior College",
-    since:    "Jan 2024",
-    hours:    "69",
-    sessions: "8",
-    stamps: [
-      "assets/15:2:25.png",
-      "assets/21:6:25.png",
-      "assets/7:3:26.png"
-    ],
-    activities: [
-      { event: "Sustainable Singapore Gallery Flagship Event", date: "Jun 2025", hrs: "4 h" },
-      { event: "The Bettering Run",                           date: "Apr 2025", hrs: "6 h" },
-      { event: "Seniors' Luncheon @ Fengshan CC",            date: "Mar 2025", hrs: "4 h" },
-      { event: "Mission Lighthouse",                          date: "Feb 2025–May 2025", hrs: "3 h" },
-      { event: "Recycle Red! 2025",                           date: "Jan 2025–Feb 2025", hrs: "6 h" },
-      { event: "Beach Cleanup @ ECP",                         date: "Dec 2024", hrs: "3 h" },
-      { event: "Food delivery to Homebound Seniors",          date: "Jun 2024", hrs: "3 h" },
-      { event: "Arts & Crafts with Kids",                     date: "Dec 2024", hrs: "3 h" }
-    ]
-  },
-
-  "80130084": {
-    name:     "Alina Khan",
-    school:   "Tanjong Katong Girls' School",
-    since:    "Jan 2024",
-    hours:    "263",
-    sessions: "133",
-    stamps: [
-      "assets/17:5:25.png"
-    ],
-    activities: [
-      { event: "The Bettering Run",                           date: "Apr 2025", hrs: "6 h" },
-      { event: "Recycle Red! 2025",                           date: "Jan 2025–Feb 2025", hrs: "6 h" },
-      { event: "Arts & Crafts with Kids",                     date: "Dec 2024", hrs: "3 h" },
-      { event: "Seniors' Luncheon @ Fengshan CC",            date: "Sept 2025", hrs: "4 h" }
-    ]
-  },
-
-    "89070733": {
-    name:     "Cheryll Ng Yan Ling",
-    school:   "Bedok Reservoir School of Being Bored",
-    since:    "Jan 2026",
-    hours:    "999",
-    sessions: "67",
-    stamps: [
-      "assets/17:5:25.png",
-        "assets/15:2:25.png",
-      "assets/21:6:25.png",
-      "assets/7:3:26.png"
-    ],
-    activities: [
-      { event: "The Bettering Run",                           date: "Apr 2025", hrs: "6 h" },
-      { event: "Recycle Red! 2025",                           date: "Jan 2025–Feb 2025", hrs: "6 h" },
-      { event: "Arts & Crafts with Kids",                     date: "Dec 2024", hrs: "3 h" },
-      { event: "Seniors' Luncheon @ Fengshan CC",            date: "Sept 2025", hrs: "4 h" }
-    ]
-  },
-
-  "96204969": {
-    name:     "Raean Cheong",
-    school:   "Unicornland",
-    since:    "May 3000",
-    hours:    "69696969",
-    sessions: "Infinite",
-    stamps: [
-      "assets/15:2:25.png",
-      "assets/21:6:25.png",
-      "assets/7:3:26.png",
-                 "assets/17:5:25.png"
-            ],
-    activities: [
-      { event: "Recycle Red! 2025",                           date: "Feb 2025", hrs: "999 h" },
-      { event: "Seniors' Luncheon @ Fengshan CC",            date: "Sept 2024", hrs: "4 h" },
-      { event: "Sustainable Singapore Gallery Flagship Event", date: "Jun 2025", hrs: "4 h" },
-      { event: "Beach Cleanup @ ECP",                         date: "Sep 2024", hrs: "3 h" },
-      { event: "The Bettering Run",                           date: "Jul 2024", hrs: "4 h" }
-    ]
-  }
-
-};
+var APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_DEPLOYMENT_URL_HERE";
 
 /* ═══════════════════════════════════════════════
-   APP LOGIC — no need to edit below this line
+   APP LOGIC
 ═══════════════════════════════════════════════ */
 
 var MAX_STAMP_SLOTS = 12;
@@ -103,6 +20,7 @@ var MAX_STAMP_SLOTS = 12;
 function doLogin() {
   var num = document.getElementById("phone-input").value.replace(/\D/g, "").slice(0, 8);
   var err = document.getElementById("login-error");
+  var btn = document.getElementById("login-btn");
 
   if (num.length < 8) {
     err.textContent = "Please enter a valid 8-digit number.";
@@ -110,15 +28,34 @@ function doLogin() {
     return;
   }
 
-  var v = DB[num];
-  if (!v) {
-    err.textContent = "No account found. Please email a support request to The Bettering Branch's IT team via thebetteringbranch@gmail.com.";
-    err.style.display = "block";
-    return;
-  }
-
+  // Loading state
   err.style.display = "none";
+  btn.textContent = "Loading…";
+  btn.disabled = true;
 
+  fetch(APPS_SCRIPT_URL + "?phone=" + num)
+    .then(function (res) { return res.json(); })
+    .then(function (v) {
+      btn.textContent = "Open Passport";
+      btn.disabled = false;
+
+      if (!v || v.error) {
+        err.textContent = "No account found. Please email a support request to The Bettering Branch's IT team via thebetteringbranch@gmail.com.";
+        err.style.display = "block";
+        return;
+      }
+
+      renderPassport(v);
+    })
+    .catch(function () {
+      btn.textContent = "Open Passport";
+      btn.disabled = false;
+      err.textContent = "Connection error. Please check your internet and try again.";
+      err.style.display = "block";
+    });
+}
+
+function renderPassport(v) {
   // Bio
   document.getElementById("pp-name").textContent     = v.name;
   document.getElementById("pp-school").textContent   = v.school;
