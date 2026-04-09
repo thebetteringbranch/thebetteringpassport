@@ -177,6 +177,27 @@ body {
   width: 100%; max-width: 110px; aspect-ratio: 1;
   border: 2px dashed rgba(92,137,91,0.2); border-radius: 6px;
 }
+
+.via-btn-link {
+  text-decoration: none;
+}
+
+.via-btn {
+  background-color: var(--green-d);
+  color: var(--white);
+  font-family: 'Signika', sans-serif;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.2s;
+}
+
+.via-btn:hover {
+  background-color: var(--green-dd);
+}
  
 /* ── LOG PAGE ── */
 .log-page { position: relative; overflow: hidden; }
